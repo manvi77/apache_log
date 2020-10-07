@@ -1,1 +1,1 @@
-# apache_log
+# Simple apache log analyser
