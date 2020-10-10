@@ -2,7 +2,7 @@ import re
 import os
 import numpy as np
 
-REGEX = '([(\d\.)]+) - - \[(.*?)\] "(.*?)" (\d+) (\d+) "(.*?)" "(.*?)" (\d+) (\S.*)'
+REGEX = r'([(\d\.)]+) - - \[(.*?)\] "(.*?)" (\d+) (\d+) "(.*?)" "(.*?)" (\d+) (\S.*)'
 
 
 def parseApachelog(line):
@@ -28,7 +28,6 @@ def statsOfApacheLog(response_times):
     print('Number of responses slower than 100ms are {}'.format(slow_100ms))
     print('Number of responses slower than 500ms are {}'.format(slow_500ms))
     print('Number of responses slower than 1000ms are {}'.format(slow_1000ms))
-
     
 def getApacheLogfile(path):
     """
@@ -44,8 +43,6 @@ def getApacheLogfile(path):
         response_time = parseApachelog(line)
         all_response_times.append(response_time)
     statsOfApacheLog(all_response_times)
-
-
 
 if __name__ == "__main__":
     path = os.getcwd()
